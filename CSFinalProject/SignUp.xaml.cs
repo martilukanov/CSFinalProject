@@ -74,7 +74,7 @@ namespace CSFinalProject
 
                 try
                 {
-                    string query = "INSERT INTO CSFinalProject.dbo.UserInfo( username, pass) VALUES('" + username.Text + "', '" + password.Password + "');";
+                    string query = "INSERT INTO CSFinalProject.dbo.UserInfo( username, pass, name) VALUES('" + username.Text + "', '" + password.Password + "', ' " + name.Text + "' );";
 
                     SqlCommand cmd = new SqlCommand(query, sqlCon);
                     cmd.ExecuteNonQuery();

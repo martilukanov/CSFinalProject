@@ -23,7 +23,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.Background>
                 <ImageBrush ImageSource= "D:\School\Informatics\Visual Studio Projects\12th Grade\CSFinalProject\CSFinalProject\CSFinalProject\Resources\wallpaper.jpg"/>
             </Grid.Background>
@@ -41,8 +41,23 @@
 
             <TextBox
               x:Name="username"
-              materialDesign:HintAssist.HelperText="enter your username"
-              materialDesign:HintAssist.Hint="Username" Margin="780,10,780,206" Grid.Row="2" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" >
+              materialDesign:HintAssist.HelperText="Enter your username"
+              materialDesign:HintAssist.Hint="Username" Margin="780,26,780,190" Grid.Row="2" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" >
+                <TextBox.Text>
+                    <Binding
+                          Path="Name"
+                          UpdateSourceTrigger="PropertyChanged">
+                        <!--<Binding.ValidationRules>
+                            <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" xmlns:domain="clr-namespace:MaterialDesignDemo.Domain" />
+                        </Binding.ValidationRules>-->
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <TextBox
+              x:Name="name"
+              materialDesign:HintAssist.HelperText="Enter your name"
+              materialDesign:HintAssist.Hint="Name" Margin="780,222,780,260" Grid.Row="1" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" Grid.RowSpan="2" >
                 <TextBox.Text>
                     <Binding
                           Path="Name"
@@ -58,13 +73,13 @@
               x:Name="password"
               materialDesign:HintAssist.HelperText="At least 8 characters"
               materialDesign:HintAssist.Hint="Password"
-              materialDesign:TextFieldAssist.HasClearButton="True" Margin="780,99,780,127" Grid.Row="2" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" />
+              materialDesign:TextFieldAssist.HasClearButton="True" Margin="780,115,780,111" Grid.Row="2" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" />
 
             <PasswordBox
               x:Name="passwordCheck"
               materialDesign:HintAssist.HelperText="At least 8 characters"
               materialDesign:HintAssist.Hint=" Reenter Password"
-              materialDesign:TextFieldAssist.HasClearButton="True" Margin="780,177,780,49" Grid.Row="2" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" />
+              materialDesign:TextFieldAssist.HasClearButton="True" Margin="780,193,780,33" Grid.Row="2" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37" />
 
 
 
@@ -145,7 +160,7 @@
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="862,47,862,159" Grid.Row="3">
                 <TextBlock FontSize="25"
-                      Text="Log In" />
+                      Text="Sign Up" />
             </Button>
             <Rectangle Fill="White" Panel.ZIndex="-1" HorizontalAlignment="Center" Height="717" Margin="0,214,0,0" Grid.RowSpan="4" Stroke="Black" VerticalAlignment="Top" Width="480"/>
 

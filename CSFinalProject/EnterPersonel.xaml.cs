@@ -68,5 +68,12 @@ namespace CSFinalProject
             sda.Fill(dt);
             Box.ItemsSource = dt.DefaultView;
         }
+
+        private void ManagerMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerMenu menu = new ManagerMenu();   
+            menu.Show();
+            this.Close();
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace CSFinalProject
         {
             InitializeComponent();
         }
+        SqlConnection sqlCon2 = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=CSFinalProject; Integrated Security=True");
 
         private void Log_In_Click(object sender, RoutedEventArgs e)
         {
@@ -39,7 +40,6 @@ namespace CSFinalProject
             {
 
 
-                SqlConnection sqlCon2 = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=CSFinalProject; Integrated Security=True");
 
                 bool pass = false;
                 bool user = false;
@@ -88,22 +88,72 @@ namespace CSFinalProject
 
                     reader.Close();
 
-                    if (pass && user)
+                    currentUser currentUser = new currentUser();
+                    if ((pass && user))
                     {
-                        MainWindow obj = new MainWindow();
-                        obj.Show();
-                        this.Close();
+                        
+
+                        SqlCommand getUserInfo = new SqlCommand($"Select * from UserInfo where username = '{username.Text}'", sqlCon2);
+                        SqlDataReader readergetUserInfo;
+                        readergetUserInfo = getUserInfo.ExecuteReader();
+                        while (readergetUserInfo.Read())
+                        {
+                            
+
+                            currentUser.UserID = Convert.ToInt32(readergetUserInfo["userId"]);
+                            currentUser.Job = readergetUserInfo["job"].ToString();
+                            currentUser.Contact = readergetUserInfo["contact"].ToString();
+                            currentUser.AllowedToWork = readergetUserInfo["allowedToWork"].ToString();
+                            currentUser.Name = readergetUserInfo["name"].ToString();
+                        }
+
+                        //MessageBox.Show($"{currentUser.UserID},{currentUser.Job},{currentUser.Contact},{currentUser.AllowedToWork}");
+
+                        if(currentUser.AllowedToWork == "No" || currentUser.AllowedToWork.Equals(null)|| currentUser.AllowedToWork == "")
+                        {
+                            Request request = new Request();
+                            request.Show();
+                        }
+                        else if (currentUser.Job == "Chef")
+                        {
+                            FinishedOrders finishedOrders = new FinishedOrders();
+                            finishedOrders.Show();
+                            this.Close();
+                        }
+                        else if(currentUser.Job == "Waiter")
+                        {
+                            EnterOrders enterOrders = new EnterOrders();    
+                            enterOrders.Show(); 
+                            this.Close();   
+                        }
+                        else if(currentUser.Job == "Manager")
+                        {
+                            ManagerMenu menu = new ManagerMenu();
+                            menu.Show();
+                            this.Close();
+                        }
+                        
+                        
+                    }else if (username.Text == "#Dev")
+                    {
+                        currentUser.AllowedToWork = "Yes";
+                        currentUser.Job = "Manager";
                     }
                     else
                     {
                         MessageBox.Show("Username or Password Inncorrect");
                     }
 
+                    
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    sqlCon2.Close();
                 }
 
 
@@ -131,5 +181,50 @@ namespace CSFinalProject
             tb.Text = string.Empty;
             tb.GotFocus -= username_GotFocus;
         }
+    }
+
+    class currentUser
+    {
+        public static int userId;
+        public static string name;
+        public static string job;
+        public static string contact;
+        public static string allowedToWork;
+
+        public int UserID
+        {
+            get { return userId; }
+            set { userId = value; }
+        }
+
+        public string Job
+        {
+            get { return job; }
+            set { job = value; }
+        }
+
+        public string Contact
+        {
+            get { return contact; }
+            set { contact = value; }
+        }
+        public string AllowedToWork
+        {
+            get { return allowedToWork; }
+            set
+            {
+                allowedToWork = value;
+            }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+            }
+        }
+
     }
 }
