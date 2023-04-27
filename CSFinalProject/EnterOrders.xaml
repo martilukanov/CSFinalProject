@@ -18,8 +18,10 @@
 
         <Grid.Background>
 
-            <ImageBrush ImageSource= "\Resources\wallpaper.jpg"/>
+            <ImageBrush ImageSource= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\wallpaper.jpg"/>
         </Grid.Background>
+
+        <Image Source= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\logoFood.png" Margin="552,-241,1279,599" Panel.ZIndex="10"/>
 
         <TextBlock
                 Text="Order Management"
@@ -44,7 +46,7 @@
               materialDesign:ComboBoxAssist.MaxLength="2"
               materialDesign:HintAssist.Hint="Dish"
               materialDesign:HintAssist.HintOpacity=".5"
-              IsEditable="True" Margin="515,941,1017,0" Height="57" VerticalAlignment="Top" FontSize="25">
+              IsEditable="True" Margin="515,941,1017,0" Height="57" VerticalAlignment="Top" FontSize="25" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37">
 
         </ComboBox>
 

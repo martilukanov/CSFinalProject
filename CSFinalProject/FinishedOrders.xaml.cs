@@ -155,6 +155,18 @@ namespace CSFinalProject
                 Console.WriteLine("err");
             }
         }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            SqlCon.Close();
+            SqlCon.Open();
+            SqlCommand cmdLoadData = new SqlCommand($"Select orderId, dishName as[Dish], orderTime as [Time of Order],name from OrderInfo Left join MenuInfo on MenuInfo.dishId = OrderInfo.dishId left Join UserInfo on UserInfo.userId = OrderInfo.userId", SqlCon);
+            SqlDataAdapter sda = new SqlDataAdapter(cmdLoadData);
+            DataTable dt = new DataTable("Employee");
+            sda.Fill(dt);
+            ordersBox.ItemsSource = dt.DefaultView;
+            SqlCon.Close();
+        }
     }
 
 }

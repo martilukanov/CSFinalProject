@@ -35,6 +35,8 @@ namespace CSFinalProject
             menuBox.ItemsSource = dt.DefaultView;
             SqlCon.Close();
 
+            SqlCon.Open();
+
             SqlCommand loadMenuItems = new SqlCommand($"Select dishName from MenuInfo", SqlCon);
             SqlDataReader readerloadMenuItems;
             readerloadMenuItems = loadMenuItems.ExecuteReader();
@@ -43,7 +45,7 @@ namespace CSFinalProject
                 menuItemBox.Items.Add(readerloadMenuItems["dishName"].ToString());
             }
 
-
+            SqlCon.Close();
 
         }
 
@@ -54,13 +56,36 @@ namespace CSFinalProject
             cmdAddToBoxTeam.ExecuteNonQuery();
             SqlCon.Close();
 
+            SqlCon.Open();
+            SqlCommand cmd5 = new SqlCommand($"Select dishName, dishType from MenuInfo", SqlCon);
+            SqlDataAdapter sda2 = new SqlDataAdapter(cmd5);
+            DataTable dt = new DataTable("Menu");
+            sda2.Fill(dt);
+            menuBox.ItemsSource = dt.DefaultView;
+            SqlCon.Close();
+
+
+            menuItemBox.Items.Clear();
+
+            SqlCon.Open();
+
+            SqlCommand loadMenuItems = new SqlCommand($"Select dishName from MenuInfo", SqlCon);
+            SqlDataReader readerloadMenuItems;
+            readerloadMenuItems = loadMenuItems.ExecuteReader();
+            while (readerloadMenuItems.Read())
+            {
+                menuItemBox.Items.Add(readerloadMenuItems["dishName"].ToString());
+            }
+
+            SqlCon.Close();
+
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             bool dishExists = false;
             SqlCon.Open();
-            SqlCommand loadMenuItems = new SqlCommand($"Select dishName from MenuInfo where dishName = '{menuItemBox.SelectedValue}'", SqlCon);
+            SqlCommand loadMenuItems = new SqlCommand($"Select dishName from MenuInfo where dishName = '{dishBox.Text}'", SqlCon);
             SqlDataReader readerloadMenuItems;
             readerloadMenuItems = loadMenuItems.ExecuteReader();
             while (readerloadMenuItems.Read())
@@ -74,10 +99,32 @@ namespace CSFinalProject
             if (dishExists == false)
             {
                 SqlCon.Open();
-                SqlCommand cmdAddToBoxTeam = new SqlCommand($"Insert into MenuInfo (dishName, dishType) values ('{menuItemBox.SelectedValue}','{foodtypeBox.SelectedValue}') ", SqlCon);
+                SqlCommand cmdAddToBoxTeam = new SqlCommand($"Insert into MenuInfo (dishName, dishType) values ('{dishBox.Text}','{foodtypeBox.SelectedValue}') ", SqlCon);
                 cmdAddToBoxTeam.ExecuteNonQuery();
                 SqlCon.Close();
             }
+
+            SqlCon.Open();
+            SqlCommand cmd5 = new SqlCommand($"Select dishName, dishType from MenuInfo", SqlCon);
+            SqlDataAdapter sda2 = new SqlDataAdapter(cmd5);
+            DataTable dt = new DataTable("Menu");
+            sda2.Fill(dt);
+            menuBox.ItemsSource = dt.DefaultView;
+            SqlCon.Close();
+
+
+            SqlCon.Open();
+            menuItemBox.Items.Clear();  
+
+            SqlCommand loadMenu = new SqlCommand($"Select dishName from MenuInfo", SqlCon);
+            SqlDataReader readerloadMenus;
+            readerloadMenus = loadMenu.ExecuteReader();
+            while (readerloadMenus.Read())
+            {
+                menuItemBox.Items.Add(readerloadMenus["dishName"].ToString());
+            }
+
+            SqlCon.Close();
 
         }
 

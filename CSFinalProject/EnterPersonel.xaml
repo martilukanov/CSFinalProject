@@ -21,7 +21,7 @@
         </Grid.Background>
 
         <TextBlock 
-                Text="Personel Management" 
+                Text="Personnel Management" 
                 FontSize="100" 
                 TextAlignment="Center" 
                 VerticalAlignment="Top"
@@ -43,7 +43,7 @@
               materialDesign:ComboBoxAssist.MaxLength="2"
               materialDesign:HintAssist.Hint="User"
               materialDesign:HintAssist.HintOpacity=".5"
-              IsEditable="True" Margin="140,361,1392,0" Height="57" VerticalAlignment="Top" FontSize="25">
+              IsEditable="True" Margin="140,361,1392,0" Height="57" VerticalAlignment="Top" FontSize="25" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37">
 
         </ComboBox>
 
@@ -51,7 +51,7 @@
               materialDesign:ComboBoxAssist.MaxLength="2"
               materialDesign:HintAssist.Hint="Job"
               materialDesign:HintAssist.HintOpacity="0.5"
-              IsEditable="True" Margin="138,460,1392,0" Height="70" VerticalAlignment="Top" FontSize="25">
+              IsEditable="True" Margin="138,460,1392,0" Height="70" VerticalAlignment="Top" FontSize="25" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37">
             <ComboBoxItem Content="Waiter" />
             <ComboBoxItem Content="Chef" />
             <ComboBoxItem Content="Manager" />
@@ -77,7 +77,7 @@
               materialDesign:ComboBoxAssist.MaxLength="2"
               materialDesign:HintAssist.Hint="Can work:"
               materialDesign:HintAssist.HintOpacity=".5"
-              IsEditable="True" Margin="138,695,1392,0" Height="70" VerticalAlignment="Top" FontSize="25">
+              IsEditable="True" Margin="138,695,1392,0" Height="70" VerticalAlignment="Top" FontSize="25" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37">
             <ComboBoxItem Content="Yes" />
             <ComboBoxItem Content="No" />
 

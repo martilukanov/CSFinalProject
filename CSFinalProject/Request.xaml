@@ -21,7 +21,7 @@
         </Grid.Background>
 
 
-
+        <Image Source= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\logoFood.png" Margin="892,104,892,821"/>
 
         <TextBlock
                 Text="You currently do not have access. Do you want to send a request for profile review? "
@@ -31,7 +31,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 FontFamily="Gill Sans MT"
-                Foreground="#d4af37" Margin="0,203,0,0" Height="570" Width="1022"/>
+                Foreground="#d4af37" Margin="446,269,446,0" Height="570" Width="1022"/>
 
 
 

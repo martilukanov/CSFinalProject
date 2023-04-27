@@ -28,6 +28,7 @@
                 <ImageBrush ImageSource= "D:\School\Informatics\Visual Studio Projects\12th Grade\CSFinalProject\CSFinalProject\CSFinalProject\Resources\wallpaper.jpg"/>
             </Grid.Background>
 
+            <Image Source= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\logoFood.png" Margin="908,164,909,113" Grid.RowSpan="2"/>
 
             <TextBlock 
                 Text="Sign Up" 

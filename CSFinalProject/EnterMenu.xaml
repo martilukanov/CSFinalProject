@@ -17,7 +17,7 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource= "\Resources\wallpaper.jpg"/>
+            <ImageBrush ImageSource= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\wallpaper.jpg"/>
         </Grid.Background>
 
         <TextBlock
@@ -43,7 +43,7 @@
               materialDesign:ComboBoxAssist.MaxLength="2"
               materialDesign:HintAssist.Hint="Dish"
               materialDesign:HintAssist.HintOpacity=".5"
-              IsEditable="True" Margin="140,361,1392,0" Height="57" VerticalAlignment="Top" FontSize="25">
+              IsEditable="True" Margin="140,361,1392,0" Height="57" VerticalAlignment="Top" FontSize="25" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37">
 
         </ComboBox>
 
@@ -68,7 +68,7 @@
               materialDesign:ComboBoxAssist.MaxLength="2"
               materialDesign:HintAssist.Hint="Vegetarian/vegan?"
               materialDesign:HintAssist.HintOpacity=".5"
-              IsEditable="True" Margin="138,695,1392,0" Height="70" VerticalAlignment="Top" FontSize="25">
+              IsEditable="True" Margin="138,695,1392,0" Height="70" VerticalAlignment="Top" FontSize="25" materialDesign:TextFieldAssist.UnderlineBrush="#d4af37">
             <ComboBoxItem Content="Vegetarian" />
             <ComboBoxItem Content="Vegan" />
             <ComboBoxItem Content="Pork" />

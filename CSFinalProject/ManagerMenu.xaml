@@ -20,6 +20,8 @@
             <ImageBrush ImageSource= "D:\School\Informatics\Visual Studio Projects\12th Grade\CSFinalProject\CSFinalProject\CSFinalProject\Resources\wallpaper.jpg"/>
         </Grid.Background>
 
+        <Image Source= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\logoFood.png" Margin="919,202,919,769"/>
+
         <TextBlock 
                 Text="Maneger Menu" 
                 FontSize="100" 
@@ -36,7 +38,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 FontFamily="Gill Sans MT"
-                Foreground="#d4af37" Margin="0,227,0,0" Height="66" Width="320"/>
+                Foreground="#d4af37" Margin="799,287,795,0" Height="66" Width="320"/>
 
 
 
@@ -56,7 +58,7 @@
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="831,413,831,591">
             <TextBlock FontSize="25"
-                      Text="Personel" />
+                      Text="Personnel" />
         </Button>
         <Button
                     Height="60"

@@ -5,14 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSFinalProject"
         mc:Ignorable="d"
-        Title="FinishedOrders" Height="1080" Width="1920">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="FinishedOrders" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized">
     <Grid>
 
         <Grid.Background>
 
-            <ImageBrush ImageSource= "\Resources\wallpaper.jpg"/>
+            <ImageBrush ImageSource= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\wallpaper.jpg"/>
         </Grid.Background>
-        
+
+        <Image Source= "C:\Users\marti\source\repos\martilukanov\CSFinalProject\CSFinalProject\Resources\logoFood.png" Margin="888,-302,888,561"/>
+
         <DataGrid Margin="444,180,444,180" x:Name="ordersBox" FontSize="30" IsReadOnly="True" SelectionChanged="dataGrid1_SelectionChanged" >
 
             <DataGrid.Resources>
@@ -23,6 +33,18 @@
 
 
         </DataGrid>
+
+        <Button
+                    Height="60"
+                    Click="Refresh_Click"
+                    Background="#d4af37"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="862,930,862,61">
+            <TextBlock FontSize="25"
+                      Text="Refresh" />
+        </Button>
 
         <Button x:Name="Sign_Up"
                         Template="{StaticResource NoMouseOverButtonTemplate}"
